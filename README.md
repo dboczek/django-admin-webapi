@@ -18,18 +18,19 @@ INSTALLED_APPS = [
 Simplest way to add models to api.
 Add to your urls.py
 
+```
 from admin_webapi.routers import admin_router
 from yourapp import models
 
 admin_router.register(models.SomeModel1, fields=('field_name1', 'field_name2'))
 admin_router.register(models.SomeModel2, fields=('field_name1', 'field_name2'))
-# You can provide exclude_fields as well for more advanced examples see urls.py in damin_webapi_demo project.
+You can provide exclude_fields as well for more advanced examples see urls.py in damin_webapi_demo project.
 
 urlpatterns = [
     url(r'^api-token-auth/', views.obtain_auth_token),
     url(r'^admin-staff/', include(admin_router.urls)),
 ]
-
+```
 
 Configuration
 =============
