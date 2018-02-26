@@ -66,7 +66,7 @@ u.save()
 
 By posting username and password to
 http://127.0.0.1:8000/api-token-auth/
-you will obtain token you shoud send with request to API.
+you will obtain token you should send with request to API.
 
 `Authorizaton: Token YOUR_TOKEN_HERE`
 
