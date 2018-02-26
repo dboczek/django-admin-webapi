@@ -28,28 +28,7 @@ class AdminAPIViewMixin(object):
 
 
 class AdminAPIRootView(AdminAPIViewMixin, APIRootView):
-    api_root_dict = None
-
-    def get(self, request, *args, **kwargs):
-        # Return a plain {"name": "hyperlink"} response.
-        ret = OrderedDict()
-        namespace = request.resolver_match.namespace
-        for key, url_name in self.api_root_dict.items():
-            if namespace:
-                url_name = namespace + ':' + url_name
-            try:
-                ret[key] = reverse(
-                    url_name,
-                    args=args,
-                    kwargs=kwargs,
-                    request=request,
-                    format=kwargs.get('format', None)
-                )
-            except NoReverseMatch:
-                # Don't bail out if eg. no list routes exist, only detail routes.
-                continue
-
-        return Response(ret)
+    pass
 
 
 class AdminAPIViewSet(AdminAPIViewMixin, ModelViewSet):
