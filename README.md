@@ -24,7 +24,7 @@ from yourapp import models
 
 admin_router.register(models.SomeModel1, fields=('field_name1', 'field_name2'))
 admin_router.register(models.SomeModel2, fields=('field_name1', 'field_name2'))
-# You can provide exclude_fields as well for more advanced examples see urls.py in damin_webapi_demo project.
+# You can provide exclude_fields as well for more advanced examples see admin_webapi_demo/urls.py and demoapp/api_admin.py project.
 
 urlpatterns = [
     url(r'^api-token-auth/', views.obtain_auth_token),
