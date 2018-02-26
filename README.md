@@ -15,6 +15,22 @@ INSTALLED_APPS = [
 
 ```
 
+Simplest way to add models to api.
+Add to your urls.py
+
+from admin_webapi.routers import admin_router
+from yourapp import models
+
+admin_router.register(models.SomeModel1, fields=('field_name1', 'field_name2'))
+admin_router.register(models.SomeModel2, fields=('field_name1', 'field_name2'))
+# You can provide exclude_fields as well for more advanced examples see urls.py in damin_webapi_demo project.
+
+urlpatterns = [
+    url(r'^api-token-auth/', views.obtain_auth_token),
+    url(r'^admin-staff/', include(admin_router.urls)),
+]
+
+
 Check demo application
 ======================
 You can check source on github obviously.
@@ -49,10 +65,12 @@ This method of authorization is not part of my library you can use any authoriza
 Configuration
 =============
 Same as Django REST framework but uses ADMIN_API dict instead of REST_FRAMEWORK dict in settings.py of your project.
-
 All defaults are same as Django REST Framework except those changend in admin_webapi/settings.py
-
 This way you can have separate global configuration for admin api and for other api based on DRF in your project.
+
+By default admin_webapi limits access to the API to admin users (staff) so you need to configure some authentication method same way as it is  done in DRF.
+See demoapp and admin_webapi_demo for example with Token authentication.
+
 
 Notes
 =====
