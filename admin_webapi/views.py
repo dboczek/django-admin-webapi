@@ -1,15 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from collections import OrderedDict
-from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.response import Response
-from rest_framework import authentication, permissions
-
 from rest_framework.routers import APIRootView
-from rest_framework.routers import reverse
-from rest_framework.routers import NoReverseMatch
-
 from admin_webapi.settings import admin_api_settings
 
 

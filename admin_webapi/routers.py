@@ -18,6 +18,11 @@ class AdminRouter(DefaultRouter):
             self.root_renderers = list(admin_api_settings.DEFAULT_RENDERER_CLASSES)
         if 'default_permission_classes' in kwargs:
             self.default_permission_classes = kwargs.pop('default_permission_classes')
+
+            class APIRootView(self.APIRootView):
+                permission_classes = self.default_permission_classes
+
+            self.APIRootView = APIRootView
         super(DefaultRouter, self).__init__(*args, **kwargs)
 
     def register(self, viewset_or_model, prefix=None, base_name=None, fields=None, exclude_fields=None):
