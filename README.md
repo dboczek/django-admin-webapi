@@ -31,6 +31,16 @@ urlpatterns = [
 ]
 
 
+Configuration
+=============
+Same as Django REST framework but uses ADMIN_API dict instead of REST_FRAMEWORK dict in settings.py of your project.
+All defaults are same as Django REST Framework except those changend in admin_webapi/settings.py
+This way you can have separate global configuration for admin api and for other api based on DRF in your project.
+
+By default admin_webapi limits access to the API to admin users (staff) so you need to configure some authentication method same way as it is  done in DRF.
+See demoapp and admin_webapi_demo for example with Token authentication.
+
+
 Check demo application
 ======================
 You can check source on github obviously.
@@ -60,16 +70,6 @@ you will obtain token you shoud send with request to API.
 `Authorizaton: Token YOUR_TOKEN_HERE`
 
 This method of authorization is not part of my library you can use any authorization that is avaliable for Django Rest Framework.
-
-
-Configuration
-=============
-Same as Django REST framework but uses ADMIN_API dict instead of REST_FRAMEWORK dict in settings.py of your project.
-All defaults are same as Django REST Framework except those changend in admin_webapi/settings.py
-This way you can have separate global configuration for admin api and for other api based on DRF in your project.
-
-By default admin_webapi limits access to the API to admin users (staff) so you need to configure some authentication method same way as it is  done in DRF.
-See demoapp and admin_webapi_demo for example with Token authentication.
 
 
 Notes
